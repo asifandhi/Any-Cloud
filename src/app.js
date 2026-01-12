@@ -23,7 +23,7 @@ import userRouter from './routes/user.routes.js';
 import filesRouter from './routes/files.routes.js';
 
 app.use("/api/v1/users",userRouter);
-app.use("/api/v1/posts",filesRouter)
+app.use("/api/v1/files",filesRouter)
 
 
 export { app };
