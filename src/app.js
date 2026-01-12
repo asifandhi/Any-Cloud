@@ -14,14 +14,16 @@ app.use(cors({
 
 
 }));
-// use foe json size that we allow from the clint side
 app.use(express.json({limit:"20kb"}))
-// this is for to encode the url data
 app.use(express.urlencoded({extended:true,limit:"20kb"}))
-// this for the public folder to access the static files
 app.use(express.static('public'));
-// this is for cookie parser only server can read the cookie from the browser
 app.use(cookieParser());
+
+import userRouter from './routes/user.routes.js';
+import filesRouter from './routes/files.routes.js';
+
+app.use("/api/v1/users",userRouter);
+app.use("/api/v1/posts",filesRouter)
 
 
 export { app };
